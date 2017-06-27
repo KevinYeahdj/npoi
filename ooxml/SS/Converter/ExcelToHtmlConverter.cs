@@ -155,7 +155,7 @@ namespace NPOI.SS.Converter
         {
             ProcessSheetHeader(htmlDocumentFacade.Body, sheet);
 
-            int physicalNumberOfRows = sheet.PhysicalNumberOfRows;
+            int physicalNumberOfRows = sheet.LastRowNum + 1;  //PhysicalNumberOfRows会忽略中间的空白行，导致最后几行不能正常显示;
             if (physicalNumberOfRows <= 0)
                 return;
 
